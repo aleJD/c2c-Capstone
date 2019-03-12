@@ -1,3 +1,24 @@
-#textfield1 {
-    background-color: rgb(255,0,0);
+.superContainer {
+    display: flex;
+    padding: 10px;
+}
+
+.columnFormation {
+    margin: auto;
+    padding: 10px;
+}
+
+.classTextField {
+    display: block;
+    background-color: rgb(240, 240, 240);
+    font-family: Arial;
+    text-align: center;
+}
+
+#leftColumn {
+    margin-left: 25%;
+}
+
+#rightColumn {
+    margin-right: 25%;
 }
