@@ -169,7 +169,8 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../img/students.jpg");
+  /*background-image: url("../img/students.jpg");*/
+  background-image: url("https://pbs.twimg.com/profile_images/982352314060058624/gaqnWmbZ.jpg");
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
