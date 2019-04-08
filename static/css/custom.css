@@ -1,24 +1,24 @@
-.superContainer {
+.super-container {
     display: flex;
     padding: 10px;
 }
 
-.columnFormation {
+.column-formation {
     margin: auto;
     padding: 10px;
 }
 
-.classTextField {
+.grade-input {
     display: block;
     background-color: rgb(240, 240, 240);
     font-family: Arial;
     text-align: center;
 }
 
-#leftColumn {
+#left-column {
     margin-left: 25%;
 }
 
-#rightColumn {
+#right-column {
     margin-right: 25%;
 }
