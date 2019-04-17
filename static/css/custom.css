@@ -15,10 +15,20 @@
     text-align: center;
 }
 
+.centered-text {
+    text-align: center;
+    font-family: Arial;
+}
+
 #left-column {
     margin-left: 25%;
 }
 
 #right-column {
     margin-right: 25%;
+}
+
+#answer {
+    font-family: Arial;
+    border: 2px solid red;
 }
