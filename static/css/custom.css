@@ -20,6 +20,11 @@
     font-family: Arial;
 }
 
+.highlight-invalid {
+    border: 1px solid red;
+    background-color: #ffd0a0;
+}
+
 #left-column {
     margin-left: 25%;
 }
@@ -30,5 +35,4 @@
 
 #answer {
     font-family: Arial;
-    border: 2px solid red;
 }

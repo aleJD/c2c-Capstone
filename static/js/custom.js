@@ -1,50 +1,41 @@
-function buttonClick() {
-    var gradeInputArray = document.getElementsByClassName("grade-input");
-    var validationResults = validate(gradeInputArray);
-    if(!validationResults[0]) {
-        highlightInvalid(validationResults[1]);
-    }
-    document.getElementById("answer").innerHTML =  sum() + "%"
-}
+console.log("Hello World!");
 
-function sum() {
+function submitButtonClicked() {
+
     var gradeInputArray = document.getElementsByClassName("grade-input");
-    var sumOfInput = 0;
-    for(var i = 0; i < gradeInputArray.length; i++) {
-        var field = gradeInputArray[i];
-        var parseE = parseInt(field.value);
-        if(isNaN(parseE)) { continue; }
-        else { sumOfInput += parseE; }
+
+    if(validate(gradeInputArray)) {
+        document.getElementById("answer").innerHTML = average(gradeInputArray);
+    } else {
+        var warningLabel = document.createElement("p");
+        warningLabel.appendChild(document.createTextNode("Please fill out all fields."));
+        warningLabel.id = "warning-label";
+        document.getElementById("services-container").appendChild(warningLabel);
     }
-    return sumOfInput / 8;
+
 }
 
 function validate(fieldArray) {
     var isValid = true;
-    var invalidList = [];
-    var iLIndex = 0;
     for(var i = 0; i < fieldArray.length; i++) {
-        var field = fieldArray[i];
-        var parsedInput = parseInt(field.value);
-        if(isNaN) {
+        fieldArray[i].classList.remove("highlight-invalid");
+        if(isNaN(parseInt(fieldArray[i].value))) {
+            fieldArray[i].classList.add("highlight-invalid");
             isValid = false;
-            invalidList[iLIndex] = field;
-            iLIndex++;
-            continue;
-        }
-        if(parsedInput > 100 || parsedInput < 0) {
-            isValid = false;
-            invalidList[iLIndex] = field;
-            iLIndex++;
         }
     }
-    return [isValid, invalidList];
+    return isValid;
 }
 
-function highlightInvalid(fieldArray) {
-    for(var i = 0; i < fieldArray.length; i++) {
-        fieldArray[i].setAttribute("style", "border: 1px solid red;");
+function average(elementArray) {
+    var sumOfInput = 0;
+    for(var i = 0; i < elementArray.length; i++) {
+        var field = elementArray[i];
+        var parseE = parseInt(field.value);
+        if(isNaN(parseE)) { continue; }
+        else { sumOfInput += parseE; }
     }
+    return sumOfInput / elementArray.length;
 }
 
 // TODO: GPA and input validation
