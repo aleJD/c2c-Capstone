@@ -1,16 +1,24 @@
 console.log("Hello World!");
 
+var warningLabel = document.createElement("p");
+warningLabel.appendChild(document.createTextNode("Please fill out all fields."));
+warningLabel.classList.add("centered-text");
+
 function submitButtonClicked() {
+
+    try {
+        document.getElementById("services").removeChild(warningLabel);
+    } catch(DOMException) {
+        var time = new Date();
+        console.log(time.getHours()+":"+time.getMinutes()+":"+time.getSeconds());
+    }
 
     var gradeInputArray = document.getElementsByClassName("grade-input");
 
     if(validate(gradeInputArray)) {
-        document.getElementById("answer").innerHTML = average(gradeInputArray);
+        document.getElementById("answer").innerHTML = average(gradeInputArray) + "%";
     } else {
-        var warningLabel = document.createElement("p");
-        warningLabel.appendChild(document.createTextNode("Please fill out all fields."));
-        warningLabel.id = "warning-label";
-        document.getElementById("services-container").appendChild(warningLabel);
+        document.getElementById("services").appendChild(warningLabel);
     }
 
 }
@@ -19,7 +27,8 @@ function validate(fieldArray) {
     var isValid = true;
     for(var i = 0; i < fieldArray.length; i++) {
         fieldArray[i].classList.remove("highlight-invalid");
-        if(isNaN(parseInt(fieldArray[i].value))) {
+        var parsed = parseInt(fieldArray[i].value);
+        if(isNaN(parsed) || parsed > 100) {
             fieldArray[i].classList.add("highlight-invalid");
             isValid = false;
         }
