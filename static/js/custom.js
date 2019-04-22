@@ -1,24 +1,39 @@
 console.log("Hello World!");
 
+var services = document.getElementById("services");
+
 var warningLabel = document.createElement("p");
 warningLabel.appendChild(document.createTextNode("Please fill out all fields."));
 warningLabel.classList.add("centered-text");
+var answerLabel = document.createElement("h1");
+var answerLabelTextNode;
+answerLabel.classList.add("centered-text");
 
 function submitButtonClicked() {
 
     try {
-        document.getElementById("services").removeChild(warningLabel);
+        services.removeChild(warningLabel);
     } catch(DOMException) {
         var time = new Date();
-        console.log(time.getHours()+":"+time.getMinutes()+":"+time.getSeconds());
+        console.log(time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+" warningLabel is not a child of services.");
     }
 
-    var gradeInputArray = document.getElementsByClassName("grade-input");
+    try {
+        answerLabel.removeChild(answerLabelTextNode);
+    } catch(DOMException) {
+        var time = new Date();
+        console.log(time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+" answerLabel is not a child of services.");
+    }
 
-    if(validate(gradeInputArray)) {
-        document.getElementById("answer").innerHTML = average(gradeInputArray) + "%";
+    var inputArray = document.getElementsByClassName("grade-input");
+
+    if(validate(inputArray)) {
+        console.log("Average: " + average(inputArray));
+        services.appendChild(answerLabel);
+        answerLabelTextNode = document.createTextNode(average(inputArray));
+        answerLabel.appendChild(answerLabelTextNode);
     } else {
-        document.getElementById("services").appendChild(warningLabel);
+        services.appendChild(warningLabel);
     }
 
 }
@@ -27,6 +42,11 @@ function validate(fieldArray) {
     var isValid = true;
     for(var i = 0; i < fieldArray.length; i++) {
         fieldArray[i].classList.remove("highlight-invalid");
+        var val = fieldArray[i].value;
+        if(val == "") {
+            fieldArray[i].value = 0;
+            continue;
+        }
         var parsed = parseInt(fieldArray[i].value);
         if(isNaN(parsed) || parsed > 100) {
             fieldArray[i].classList.add("highlight-invalid");
