@@ -1,3 +1,7 @@
+section {
+    padding: 50px 0px 0px 0px;
+}
+
 .super-container {
     display: flex;
     padding: 10px;
