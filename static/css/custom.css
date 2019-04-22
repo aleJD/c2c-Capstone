@@ -1,0 +1,42 @@
+section {
+    padding: 50px 0px 0px 0px;
+}
+
+.super-container {
+    display: flex;
+    padding: 10px;
+}
+
+.column-formation {
+    margin: auto;
+    padding: 10px;
+}
+
+.grade-input {
+    display: block;
+    background-color: rgb(240, 240, 240);
+    font-family: Arial;
+    text-align: center;
+}
+
+.centered-text {
+    text-align: center;
+    font-family: Arial;
+}
+
+.highlight-invalid {
+    border: 1px solid red;
+    background-color: #ffd0a0;
+}
+
+#left-column {
+    margin-left: 25%;
+}
+
+#right-column {
+    margin-right: 25%;
+}
+
+#answer {
+    font-family: Arial;
+}
