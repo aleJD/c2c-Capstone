@@ -12,6 +12,8 @@ var answerLabelTextNode = document.createTextNode("answerLabelTextNode");
 answerLabel.appendChild(answerLabelTextNode);
 answerLabel.classList.add("centered-text");
 
+var lastInput;
+
 function submitButtonClicked() {
 
     try {
@@ -49,7 +51,7 @@ function validate(fieldArray) {
             continue;
         }
         var parsed = parseFloat(fieldArray[i].value);
-        if(isNaN(parsed) || parsed > 100) {
+        if(isNaN(parsed) || parsed > 100 || parsed < 0) {
             fieldArray[i].classList.add("highlight-invalid");
             isValid = false;
         }
@@ -76,6 +78,14 @@ function addField() {
     newInput.placeholder = "Grade #" + numOfInputs;
     newInput.classList.add("grade-input");
     document.getElementById("inputContainer").appendChild(newInput);
+    lastInput = newInput;
+}
+
+function removeField() {
+    if(document.getElementsByClassName("grade-input").length == 1) return;
+    document.getElementById("inputContainer").removeChild(lastInput);
+    var inputArray = document.getElementsByClassName("grade-input");
+    lastInput = inputArray[inputArray.length-1]
 }
 
 // TODO: GPA and input validation
