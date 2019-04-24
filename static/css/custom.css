@@ -2,18 +2,9 @@ section {
     padding: 50px 0px 0px 0px;
 }
 
-.super-container {
-    display: flex;
-    padding: 10px;
-}
-
-.column-formation {
-    margin: auto;
-    padding: 10px;
-}
-
 .grade-input {
-    display: block;
+    display: inline;
+    margin: 0 5px 10px 5px;
     background-color: rgb(240, 240, 240);
     font-family: Arial;
     text-align: center;
@@ -24,9 +15,19 @@ section {
     font-family: Arial;
 }
 
+.bold-text {
+    font-weight: bold;
+}
+
 .highlight-invalid {
     border: 1px solid red;
     background-color: #ffd0a0;
+}
+
+#inputContainer {
+    display: block;
+    margin: auto;
+    width: 35%;
 }
 
 #left-column {
