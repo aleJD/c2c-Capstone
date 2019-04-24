@@ -68,22 +68,19 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<h2 class="section-heading">Enter your grades below!</h2>
+					<p>Enter your grade into the text fields below. You can add more with the "Add Field" button.</p>
 					<hr class="my-4">
-					<div class="super-container">
-						<div class="column-formation" id="left-column">
-							<input type="text" placeholder="1st Period" class="grade-input">
-							<input type="text" placeholder="2nd Period" class="grade-input">
-							<input type="text" placeholder="3rd Period" class="grade-input">
-							<input type="text" placeholder="4th Period" class="grade-input">
-						</div>
-						<div class="column-formation" id="right-column">
-							<input type="text" placeholder="5th Period" class="grade-input">
-							<input type="text" placeholder="6th Period" class="grade-input">
-							<input type="text" placeholder="7th Period" class="grade-input">
-							<input type="text" placeholder="8th Period" class="grade-input">
-						</div>
+					<!--
+					<form id="answerFormatForm">
+						<input type="radio" name="answerFormat" value="percent" checked> Percent<br>
+						<input type="radio" name="answerFormat" value="gpa"> GPA<br>
+					</form>
+					-->
+					<div id="inputContainer">
+						<input type="text" placeholder="Grade #1" class="grade-input">
 					</div>
 					<button onclick="submitButtonClicked()">Submit</button>
+					<button onClick="addField()">Add Field</button>
 				</div>
 			</div>
 		</div>
