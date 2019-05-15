@@ -10,6 +10,15 @@ section {
     text-align: center;
 }
 
+.weight-input {
+    display: inline;
+    margin: 0 5px 10px 5px;
+    width: 100px;
+    background-color: rgb(240,240,240);
+    font-family: Arial;
+    text-align: center;
+}
+
 .centered-text {
     text-align: center;
     font-family: Arial;
@@ -24,6 +33,19 @@ section {
     background-color: #ffd0a0;
 }
 
+.standard-button {
+    background-color: rgb(240,240,240);
+    cursor: pointer;
+}
+
+.checkbox {
+    margin: 5px;
+}
+
+#services-container {
+    width: 60%;
+}
+
 #inputContainer {
     display: block;
     margin: auto;
@@ -36,4 +58,9 @@ section {
 
 #right-column {
     margin-right: 25%;
+}
+
+#spinner {
+    text-align: center;
+    width: 50px;
 }

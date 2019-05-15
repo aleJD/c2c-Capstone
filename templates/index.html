@@ -68,21 +68,22 @@
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<h2 class="section-heading">Enter your grades below!</h2>
-						<p>Enter your grade into the text fields below. You can add more with the "Add Field" button.</p>
+						<p>Enter your grade into the fields on the left below. You can add more with the "Add Field" button, or remove them with the "Remove Field" button.
+							Submit when you want to find the average of your grades.
+						</p>
+						<p>By default, weighting is turned off, so each grade is as important as each other. This is
+							ideal if you are calculating something such as your semester, six weeks, or section grade. However, most classes use sections such as quizzes,
+							homework, and daily work, which are all weighted differently from each other. You can enable weighting on the bottom right.</p>
 						<hr class="my-4">
-						<!--
-						<form id="answerFormatForm">
-							<input type="radio" name="answerFormat" value="percent" checked> Percent<br>
-							<input type="radio" name="answerFormat" value="gpa"> GPA<br>
-						</form>
-						-->
 						<div id="inputContainer">
 							<input type="text" placeholder="Grade #1" class="grade-input">
+							<input type="text" placeholder="Weight (%)" class="weight-input">
 						</div>
-						<button onclick="submitButtonClicked()">Submit</button>
-						<button onclick="addFieldButton()">Add Field</button>
-						<button onclick="removeFieldButton()">Remove Field</button>
+						<button class="standard-button" onclick="submitButtonClicked()">Submit</button>
+						<button class="standard-button" onclick="addFieldButton()">Add Field</button>
+						<button class="standard-button" onclick="removeFieldButton()">Remove Field</button>
 						<input type="number" onchange="spinnerChanged()" id='spinner'>
+						<input class="checkbox" id="averageCheckbox" type="checkbox" name="average" value="true"> Weighting
 					</div>
 				</div>
 			</div>
