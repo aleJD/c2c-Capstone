@@ -12,7 +12,13 @@ var answerLabelTextNode = document.createTextNode("answerLabelTextNode");
 answerLabel.appendChild(answerLabelTextNode);
 answerLabel.classList.add("centered-text");
 
-var lastInput;
+var lastInput = document.getElementsByClassName("grade-input")[0];
+
+var numberOfFields = 1;
+
+var spinner = document.getElementById('spinner');
+spinner.value = 1;
+var lastSpinnerValue = spinner.value;
 
 function submitButtonClicked() {
 
@@ -70,22 +76,107 @@ function average(elementArray) {
     return sumOfInput / elementArray.length;
 }
 
-function addField() {
-    var numOfInputs = document.getElementsByClassName("grade-input").length + 1;
-    console.log("Field added, number of Fields: " + numOfInputs);
+function addFieldButton() {
+
+    numberOfFields += 1;
+
     var newInput = document.createElement("input");
     newInput.type = "text";
-    newInput.placeholder = "Grade #" + numOfInputs;
+    newInput.placeholder = "Grade #" + numberOfFields;
     newInput.classList.add("grade-input");
     document.getElementById("inputContainer").appendChild(newInput);
     lastInput = newInput;
+    
+    spinner.value = parseInt(spinner.value) + 1;
+    lastSpinnerValue = spinner.value;
+    console.log("Field added.");
 }
 
-function removeField() {
-    if(document.getElementsByClassName("grade-input").length == 1) return;
+function autoAddField() {
+
+    numberOfFields += 1;
+
+    var newInput = document.createElement("input");
+    newInput.type = "text";
+    newInput.placeholder = "Grade #" + numberOfFields;
+    newInput.classList.add("grade-input");
+    document.getElementById("inputContainer").appendChild(newInput);
+    lastInput = newInput;
+
+    console.log("Field added.");
+
+}
+
+function removeFieldButton() {
+
+    if(document.getElementsByClassName("grade-input").length == 1) {
+        console.log("Remove field command rejected.")
+        return;
+    }
+
+    numberOfFields -= 1;
     document.getElementById("inputContainer").removeChild(lastInput);
-    var inputArray = document.getElementsByClassName("grade-input");
-    lastInput = inputArray[inputArray.length-1]
+    lastInput = document.getElementsByClassName("grade-input")[numberOfFields - 1];
+
+    spinner.value = parseInt(spinner.value) - 1;
+    lastSpinnerValue = spinner.value;
+    console.log("Field removed.");
+}
+
+function autoRemoveField() {
+
+    numberOfFields -= 1;
+
+    document.getElementById("inputContainer").removeChild(lastInput);
+    lastInput = document.getElementsByClassName("grade-input")[numberOfFields - 1];
+
+    console.log("Field removed.");
+}
+
+function addField(amount) {
+
+    if(amount > 1000) {
+        console.log("Add " + amount + " fields was rejected.");
+        return;
+    }
+
+    for(var i = 0; i < amount; i++) {
+        autoAddField();
+    }
+
+}
+
+function removeField(amount) {
+
+    if(numberOfFields - amount < 0) {
+        console.log("Remove " + amount + " fields was rejected.");
+        return;
+    }
+
+    for(var i = 0; i < amount; i++) {
+        autoRemoveField();
+    }
+
+}
+
+function spinnerChanged() {
+    if(spinner.value <= 0) {
+        console.log("Rejected input.");
+        return;
+    }
+    var spinnerDifference = spinner.value - lastSpinnerValue;
+    if(spinnerDifference < 0) {
+        removeField(Math.abs(spinnerDifference));
+        lastSpinnerValue = spinner.value;
+        return;
+    }
+    if(spinnerDifference > 0) {
+        addField(Math.abs(spinnerDifference));
+        lastSpinnerValue = spinner.value;
+        return;
+    } else {
+        console.log("Unexpected error.");
+    }
 }
 
 // TODO: GPA and input validation

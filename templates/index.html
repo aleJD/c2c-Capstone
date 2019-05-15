@@ -18,99 +18,100 @@
 
 	<body id="page-top">
 
-	<!-- Navigation Bar -->
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+		<!-- Navigation Bar -->
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 
-		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">Grade Calculator</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="#services">Calculator</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-	</nav>
-
-	<!-- First section |TITLE| -->
-	<header class="masthead text-center text-white d-flex" id="title-section">
-
-		<div class="container my-auto">
-
-			<div class="row">
-
-				<div class="col-lg-10 mx-auto">
-					<h1 class="text-uppercase"><strong>An Easy Way to Calculate Your Grades</strong></h1>
-					<hr>
+			<div class="container">
+				<a class="navbar-brand js-scroll-trigger" href="#page-top">Grade Calculator</a>
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#services">Calculator</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+						</li>
+					</ul>
 				</div>
-				<div class="col-lg-8 mx-auto">
-					<p class="text-faded mb-5">This grade calculator can help you find exactly what you need to prepare for!</p>
-					<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-				</div>
-
 			</div>
 
-		</div>
+		</nav>
 
-	</header>
+		<!-- First section |TITLE| -->
+		<header class="masthead text-center text-white d-flex" id="title-section">
 
-	<!-- Second section |CALCULATOR| -->
-	<section id="services">
-		<div class="container" id="services-container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">Enter your grades below!</h2>
-					<p>Enter your grade into the text fields below. You can add more with the "Add Field" button.</p>
-					<hr class="my-4">
-					<!--
-					<form id="answerFormatForm">
-						<input type="radio" name="answerFormat" value="percent" checked> Percent<br>
-						<input type="radio" name="answerFormat" value="gpa"> GPA<br>
-					</form>
-					-->
-					<div id="inputContainer">
-						<input type="text" placeholder="Grade #1" class="grade-input">
+			<div class="container my-auto">
+
+				<div class="row">
+
+					<div class="col-lg-10 mx-auto">
+						<h1 class="text-uppercase"><strong>An Easy Way to Calculate Your Grades</strong></h1>
+						<hr>
 					</div>
-					<button onclick="submitButtonClicked()">Submit</button>
-					<button onclick="addField()">Add Field</button>
-					<button onclick="removeField()">Remove Field</button>
+					<div class="col-lg-8 mx-auto">
+						<p class="text-faded mb-5">This grade calculator can help you find exactly what you need to prepare for!</p>
+						<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+					</div>
+
+				</div>
+
+			</div>
+
+		</header>
+
+		<!-- Second section |CALCULATOR| -->
+		<section id="services">
+			<div class="container" id="services-container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="section-heading">Enter your grades below!</h2>
+						<p>Enter your grade into the text fields below. You can add more with the "Add Field" button.</p>
+						<hr class="my-4">
+						<!--
+						<form id="answerFormatForm">
+							<input type="radio" name="answerFormat" value="percent" checked> Percent<br>
+							<input type="radio" name="answerFormat" value="gpa"> GPA<br>
+						</form>
+						-->
+						<div id="inputContainer">
+							<input type="text" placeholder="Grade #1" class="grade-input">
+						</div>
+						<button onclick="submitButtonClicked()">Submit</button>
+						<button onclick="addFieldButton()">Add Field</button>
+						<button onclick="removeFieldButton()">Remove Field</button>
+						<input type="number" onchange="spinnerChanged()" id='spinner'>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<!-- Third Section |CONTACT| -->
-	<section id="contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 mx-auto text-center">
-					<h2 class="section-heading">Let's Get In Touch!</h2>
-					<hr class="my-4">
-					<p class="mb-5">If you find any errors, have any concerns, or have any suggestions, feel free to contact me.</p>
+		<!-- Third Section |CONTACT| -->
+		<section id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 mx-auto text-center">
+						<h2 class="section-heading">Let's Get In Touch!</h2>
+						<hr class="my-4">
+						<p class="mb-5">If you find any errors, have any concerns, or have any suggestions, feel free to contact me.</p>
+					</div>
+				</div>
+				</div>
+				<div class="centered-text">
+					<p><a href="mailto:doberenz.alejandro@gmail.com">doberenz.alejandro@gmail.com</a></p>
 				</div>
 			</div>
-			</div>
-			<div class="centered-text">
-				<p><a href="mailto:doberenz.alejandro@gmail.com">doberenz.alejandro@gmail.com</a></p>
-			</div>
-		</div>
-	</section>
+		</section>
 
-	<script src="../static/vendor/jquery/jquery.min.js"></script>					<!-- JQuery JS		-->
-	<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>	<!-- Bootstrap JS	-->
-	<script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>		<!-- Plugin JS		-->
-	<script src="../static/vendor/scrollreveal/scrollreveal.min.js"></script>
-	<script src="../static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-	<script src="../static/js/creative.min.js"></script>							<!-- Creative JS	-->
-	<script src="../static/js/custom.js"></script>									<!-- Custom JS		-->
+		<script src="../static/vendor/jquery/jquery.min.js"></script>					<!-- JQuery JS		-->
+		<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>	<!-- Bootstrap JS	-->
+		<script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>		<!-- Plugin JS		-->
+		<script src="../static/vendor/scrollreveal/scrollreveal.min.js"></script>
+		<script src="../static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script src="../static/js/creative.min.js"></script>							<!-- Creative JS	-->
+		<script src="../static/js/custom.js"></script>									<!-- Custom JS		-->
 
 	</body>
 
