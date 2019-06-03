@@ -42,6 +42,11 @@ section {
     margin: 5px;
 }
 
+.section-div {
+    background-color: rgb(225,225,225);
+    border-radius: 10px;
+}
+
 #services-container {
     width: 60%;
 }

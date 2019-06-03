@@ -1,5 +1,56 @@
 console.log("Hello World!");
 
+class Section {
+
+    // info
+    fieldNum;
+    weight;
+
+    // Pieces
+    title;
+
+    constructor(weight, container) {
+        console.log("hell");
+        this.fieldNum = 1;
+        this.weight = weight;
+
+        
+
+        this.title = document.createElement("h1");
+        this.title.value = "Section " + ++Section.total;
+        this.title.style.backgroundColor = "rgb(225, 225, 225)";
+        this.title.style.borderRadius = "25px";
+        this.appendChild(this.title);
+
+        var input = document.createElement("input");
+        input.type = "text";
+        input.placeholder = "Grade #" + fieldNum;
+        input.classList.add("grade-input");
+        this.appendChild(input);
+
+        var addGradeButton = document.createElement("button");
+        addGradeButton.value = "Add Grade";
+        addGradeButton.classList.add("standard-button");
+        addGradeButton.onclick = "addFieldButton()";
+        appendChild(addGradeButton);
+
+        var removeGradeButton = document.createElement("button");
+        removeGradeButton.value = "Remove Grade";
+        removeGradeButton.classList.add("standard-button");
+        removeGradeButton.onclick = "removeFieldButton()";
+
+        var container = document.getElementById(container);
+        var div = document.createElement("div");
+        div.classList.add("section-div");
+    }
+
+}
+Section.total = 0;
+
+var sectionHolder = document.getElementById("section-holder");
+let section1 = new Section(10, "section-holder");
+const section2 = new Section(90, "section-holder");
+
 var services = document.getElementById("services");
 
 var warningLabel = document.createElement("p");
