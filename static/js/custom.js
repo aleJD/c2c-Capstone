@@ -3,53 +3,70 @@ console.log("Hello World!");
 class Section {
 
     // info
-    fieldNum;
+    fieldNum = 1;
+    sectionId = "section" + ++Section.total;
     weight;
 
     // Pieces
-    title;
+    div;            // The main container that holds the title, input field division, and buttons
+    inputFieldDiv;  // Container that holds all of the input fields
+    title;          // <h1> title of the division
 
     constructor(weight, container) {
-        console.log("hell");
-        this.fieldNum = 1;
         this.weight = weight;
 
-        
+        this.div = document.createElement("div");
+        this.div.style.border = "2px solid purple";
 
         this.title = document.createElement("h1");
-        this.title.value = "Section " + ++Section.total;
+        this.title.appendChild(document.createTextNode("Section " + Section.total));
         this.title.style.backgroundColor = "rgb(225, 225, 225)";
         this.title.style.borderRadius = "25px";
-        this.appendChild(this.title);
+        this.div.appendChild(this.title);
+
+        this.inputFieldDiv = document.createElement("div");
+        this.div.appendChild(this.inputFieldDiv);
 
         var input = document.createElement("input");
         input.type = "text";
-        input.placeholder = "Grade #" + fieldNum;
+        input.placeholder = "Grade #" + this.fieldNum;
         input.classList.add("grade-input");
-        this.appendChild(input);
+        this.inputFieldDiv.appendChild(input);
 
         var addGradeButton = document.createElement("button");
-        addGradeButton.value = "Add Grade";
+        addGradeButton.appendChild(document.createTextNode("Add Grade"));
         addGradeButton.classList.add("standard-button");
-        addGradeButton.onclick = "addFieldButton()";
-        appendChild(addGradeButton);
+        addGradeButton.addEventListener("click", this.addInputField);
+        this.div.appendChild(addGradeButton);
 
         var removeGradeButton = document.createElement("button");
-        removeGradeButton.value = "Remove Grade";
+        removeGradeButton.appendChild(document.createTextNode("Remove Grade"));
         removeGradeButton.classList.add("standard-button");
         removeGradeButton.onclick = "removeFieldButton()";
+        this.div.appendChild(removeGradeButton);
 
         var container = document.getElementById(container);
-        var div = document.createElement("div");
-        div.classList.add("section-div");
+        container.appendChild(this.div);
+    }
+
+    addInputField() {
+        console.log(document.getElementById("section"));
+        this.fieldNum++;
+        var newInput = document.createElement("input");
+        newInput.type = "text";
+        newInput.placeholder = "Grade #" + this.fieldNum;
+        newInput.classList.add("grade-input");
+        this.inputFieldDiv.appendChild(newInput);
+        //lastInput = newInput;
     }
 
 }
 Section.total = 0;
 
 var sectionHolder = document.getElementById("section-holder");
-let section1 = new Section(10, "section-holder");
-const section2 = new Section(90, "section-holder");
+var section1 = new Section(10, "section-holder");
+var section2 = new Section(10, "section-holder");
+section1.addInputField();
 
 var services = document.getElementById("services");
 
